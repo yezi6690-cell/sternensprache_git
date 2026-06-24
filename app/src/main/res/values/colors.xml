@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mi_primary">#7FAFE8</color>
+    <color name="mi_primary_light">#DCEEFF</color>
+    <color name="mi_secondary">#B9A7FF</color>
+    <color name="mi_background">#F6FAFF</color>
+    <color name="mi_card">#FFFDF7</color>
+    <color name="mi_text_main">#2F4058</color>
+    <color name="mi_text_sub">#7E91AA</color>
+    <color name="mi_warning">#FFB4A2</color>
+    <color name="mi_success">#9EE6D8</color>
+    <color name="mi_crisis">#FF6B6B</color>
+    <color name="mi_soft_yellow">#FFF3C7</color>
+    <color name="mi_soft_green">#E1F5EE</color>
+
+    <!-- Shared Xingyue background tokens. -->
+    <color name="xingyue_bg_overlay">#10EFF7FF</color>
+    <color name="xingyue_card_white">#E8FFFFFF</color>
+    <color name="xingyue_card_stroke">#80B8D7FF</color>
+    <color name="xingyue_text_primary">#2F4058</color>
+    <color name="xingyue_text_secondary">#7E91AA</color>
+    <color name="xingyue_text_hint">#A6B3C3</color>
+    <color name="xingyue_primary_blue">#7FAFE8</color>
+    <color name="xingyue_primary_blue_deep">#5F87C7</color>
+    <color name="xingyue_primary_blue_light">#DCEEFF</color>
+    <color name="xingyue_moon_purple">#B9A7FF</color>
+    <color name="xingyue_moon_purple_deep">#8170C7</color>
+    <color name="xingyue_moon_purple_soft">#EDE8FF</color>
+    <color name="xingyue_mint">#9EE6D8</color>
+    <color name="xingyue_mint_deep">#58AFA1</color>
+    <color name="xingyue_mint_soft">#E5F8F4</color>
+    <color name="xingyue_cream">#FFFDF7</color>
+    <color name="xingyue_mist_pink">#F7CFE3</color>
+    <color name="xingyue_mist_pink_deep">#BD789A</color>
+    <color name="xingyue_mist_pink_soft">#FCEAF2</color>
+    <color name="xingyue_system_bar">#F1F7FF</color>
+    <color name="xingyue_ripple_blue">#3382AEE8</color>
+    <color name="xingyue_ripple_purple">#22B9A7FF</color>
+    <color name="xingyue_ripple_mint">#229EE6D8</color>
+    <color name="xingyue_pressed_blue">#D8E8FF</color>
+</resources>

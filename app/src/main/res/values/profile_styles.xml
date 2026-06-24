@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ProfileGroupLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:layout_marginBottom">9dp</item>
+        <item name="android:textColor">@color/profile_caption</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ProfileMenuRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">@drawable/bg_profile_menu_ripple</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+    </style>
+
+    <style name="ProfileMenuIcon">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:background">@drawable/bg_profile_icon_companion</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:tint">@color/profile_accent</item>
+    </style>
+
+    <style name="ProfileMenuTitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">13dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/mi_text_main</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ProfileMenuArrow">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">›</item>
+        <item name="android:textColor">#A5B0CC</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="ProfileMenuDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginStart">62dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:background">@color/profile_divider</item>
+    </style>
+
+    <style name="ProfileEditGroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_profile_card_companion</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">14dp</item>
+    </style>
+
+    <style name="ProfileEditField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_marginBottom">9dp</item>
+        <item name="android:background">@drawable/bg_profile_edit_field</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/mi_text_main</item>
+        <item name="android:textColorHint">@color/mi_text_sub</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="ProfileReadonlyField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:textColor">@color/mi_text_sub</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

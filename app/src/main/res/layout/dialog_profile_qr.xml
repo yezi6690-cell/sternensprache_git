@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profile_qr_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_profile_qr_dialog"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="26dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="20dp">
+
+    <com.mindisle.app.profile.ProfileQrView
+        android:id="@+id/profile_qr_view"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:contentDescription="个人二维码" />
+
+    <TextView
+        android:id="@+id/profile_qr_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="叶子"
+        android:textColor="@color/mi_text_main"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/profile_qr_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="ID：user_10001"
+        android:textColor="@color/mi_text_sub"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/profile_qr_close"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_profile_round_button"
+        android:clickable="true"
+        android:contentDescription="关闭"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="×"
+        android:textColor="@color/mi_text_main"
+        android:textSize="26sp" />
+</LinearLayout>

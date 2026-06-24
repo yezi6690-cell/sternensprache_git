@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Profile-only tokens keep this visual refresh isolated from the companion stage. -->
+    <color name="profile_accent">#7FAFE8</color>
+    <color name="profile_accent_deep">#5F87C7</color>
+    <color name="profile_accent_soft">#E8F2FF</color>
+    <color name="profile_secondary">#9B89E3</color>
+    <color name="profile_surface">#F7FAFF</color>
+    <color name="profile_surface_glass">#E8FFFFFF</color>
+    <color name="profile_surface_pressed">#E9F2FF</color>
+    <color name="profile_divider">#DDE8F6</color>
+    <color name="profile_caption">#7E91AA</color>
+    <color name="profile_outline">#AFCBEF</color>
+    <color name="profile_glow">#8098CCFF</color>
+</resources>

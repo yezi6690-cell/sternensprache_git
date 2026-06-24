@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_companion"
+        android:icon="@drawable/ic_nav_home"
+        android:title="陪伴" />
+    <item
+        android:id="@+id/nav_diagnosis"
+        android:icon="@drawable/ic_nav_practice"
+        android:title="评估" />
+    <item
+        android:id="@+id/nav_exchange"
+        android:icon="@drawable/ic_nav_relax"
+        android:title="放松" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_nav_profile"
+        android:title="我的" />
+</menu>

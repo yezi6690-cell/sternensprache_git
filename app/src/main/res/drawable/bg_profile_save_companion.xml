@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/profile_accent_deep" />
+            <corners android:radius="19dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient
+                android:angle="0"
+                android:endColor="#8F80D4"
+                android:startColor="#6F8FEF" />
+            <corners android:radius="19dp" />
+        </shape>
+    </item>
+</selector>

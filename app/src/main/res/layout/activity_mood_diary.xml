@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mi_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/mi_page_padding">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="今天的情绪记录"
+                android:textColor="@color/mi_text_main"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/mood_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.mindisle.app.view.EmotionTagView
+                        android:id="@+id/mood_happy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="开心" />
+
+                    <com.mindisle.app.view.EmotionTagView
+                        android:id="@+id/mood_calm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="平静" />
+
+                    <com.mindisle.app.view.EmotionTagView
+                        android:id="@+id/mood_anxious"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="焦虑" />
+
+                    <com.mindisle.app.view.EmotionTagView
+                        android:id="@+id/mood_tired"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="疲惫" />
+
+                    <com.mindisle.app.view.EmotionTagView
+                        android:id="@+id/mood_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="低落" />
+
+                    <com.mindisle.app.view.EmotionTagView
+                        android:id="@+id/mood_irritable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="烦躁" />
+
+                    <com.mindisle.app.view.EmotionTagView
+                        android:id="@+id/mood_lonely"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="孤独" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <EditText
+                android:id="@+id/mood_content_input"
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_input"
+                android:gravity="top"
+                android:hint="今天让我印象最深的一件事是……"
+                android:inputType="textMultiLine"
+                android:padding="16dp"
+                android:textColor="@color/mi_text_main"
+                android:textColorHint="@color/mi_text_sub"
+                android:textSize="15sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save_mood_button"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:text="保存今日心情"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="最近记录"
+                android:textColor="@color/mi_text_main"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mood_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mi_card"
+        app:itemIconTint="@color/mi_text_sub"
+        app:itemTextColor="@color/mi_text_main"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_nav" />
+</LinearLayout>

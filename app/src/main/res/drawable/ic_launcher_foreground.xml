@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="@color/mi_primary_light"
+        android:pathData="M54,8a46,46 0,1 0,0.1 0z" />
+    <path
+        android:fillColor="@color/mi_secondary"
+        android:pathData="M24,66c9,-16 20,-23 34,-23c13,0 23,7 30,21c-8,12 -20,20 -34,20c-13,0 -23,-6 -30,-18z" />
+    <path
+        android:fillColor="@color/mi_primary"
+        android:pathData="M20,72c8,6 18,9 32,9c17,0 30,-5 39,-15c-4,19 -20,34 -38,34c-16,0 -29,-11 -33,-28z" />
+    <path
+        android:fillColor="@color/mi_card"
+        android:pathData="M45,35a9,9 0,1 0,18 0a9,9 0,1 0,-18 0z" />
+</vector>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">心屿</string>
+    <string name="app_english_name">MindIsle</string>
+    <string name="app_slogan">让情绪有处停靠</string>
+    <string name="floating_interaction_accessibility_description">开启后，小屿可以根据桌面和其他 App 的点击位置做出本地陪伴反应。不会记录、保存或上传输入内容。</string>
+</resources>

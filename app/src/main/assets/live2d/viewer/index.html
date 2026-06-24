@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MindIsle Live2D Viewer</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: transparent;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        #stage {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        body.floating #stage {
+            background: transparent;
+        }
+
+        #live2d-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: transparent;
+        }
+
+        #error {
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            bottom: 22px;
+            display: none;
+            padding: 12px 14px;
+            border: 1px solid rgba(214, 113, 88, .24);
+            border-radius: 18px;
+            color: #6F4C42;
+            background: rgba(255, 253, 248, .88);
+            box-shadow: 0 12px 30px rgba(100, 68, 54, .12);
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+        }
+    </style>
+    <!-- Put Cubism SDK for Web / renderer dependencies in live2d/viewer/libs. -->
+    <script src="libs/live2dcubismcore.min.js"></script>
+    <script src="libs/pixi.min.js"></script>
+    <script src="libs/cubism4.min.js"></script>
+    <script src="libs/mindisle-cubism-adapter.js"></script>
+</head>
+<body>
+<main id="stage">
+    <canvas id="live2d-canvas"></canvas>
+    <div id="error">Live2D 模型加载失败，请检查模型文件路径。</div>
+</main>
+<script src="live2d-viewer.js"></script>
+</body>
+</html>

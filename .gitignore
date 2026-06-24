@@ -1,0 +1,91 @@
+# ===== local secrets =====
+.env
+backend/.env
+backend/.env.*
+!backend/.env.example
+local.properties
+local.properties.bak
+*.bak
+
+# ===== node backend =====
+backend/node_modules/
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+
+# ===== Android / Gradle =====
+.gradle/
+build/
+app/build/
+*.apk
+*.aab
+
+# ===== IDE local files =====
+.idea/workspace.xml
+.idea/deploymentTargetDropDown.xml
+.vscode/
+
+# ===== Live2D model assets: do not publish =====
+app/src/main/assets/live2d/cubism5_models/**
+app/src/main/assets/live2d/models/**
+app/src/main/assets/live2d/**/*.moc3
+app/src/main/assets/live2d/**/*.model3.json
+app/src/main/assets/live2d/**/*.physics3.json
+app/src/main/assets/live2d/**/*.pose3.json
+app/src/main/assets/live2d/**/*.vtube.json
+app/src/main/assets/live2d/**/*.cdi3.json
+app/src/main/assets/live2d/**/*.exp3.json
+app/src/main/assets/live2d/**/textures/**
+app/src/main/assets/live2d/**/*.png
+app/src/main/assets/live2d/**/*.jpg
+app/src/main/assets/live2d/**/*.jpeg
+app/src/main/assets/live2d/**/*.webp
+
+# allow placeholder / documentation
+!app/src/main/assets/live2d/README.md
+!app/src/main/assets/live2d/.gitkeep
+!app/src/main/assets/live2d/cubism5_models/.gitkeep
+!app/src/main/assets/live2d/models/.gitkeep
+
+# ===== audio / media =====
+app/src/main/assets/audio/**
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+*.mp4
+*.mov
+*.gif
+
+# ===== OS temp =====
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+# ===== IDE extra =====
+.idea/caches/
+.idea/vcs.xml
+
+# ===== external SDK / generated viewer files =====
+CubismSdkForWeb-5-r.5/
+app/src/main/assets/live2d/viewer5/libs/Samples/TypeScript/Demo/dist/
+app/src/main/assets/live2d/viewer5/libs/Samples/TypeScript/Demo/node_modules/
+app/src/main/assets/live2d/viewer5/libs/Samples/TypeScript/Demo/public/
+
+# ===== temporary scripts =====
+migrate_hushi.py
+# ===== more Live2D model asset folders =====
+app/src/main/assets/live2d/hehua_xiaojiangshi/**
+app/src/main/assets/live2d/tianshi_xiaoxiaoyang/**
+app/src/main/assets/live2d/xiaotuji/**
+app/src/main/assets/live2d/xiaoxiong/**
+app/src/main/assets/live2d/xingyue_shuimu/**
+app/src/main/assets/live2d/xingyue_shuimu_safe/**
+app/src/main/assets/live2d/yumi/**
+
+# Cubism Viewer sample models, not needed in public repo
+app/src/main/assets/live2d/viewer5/libs/Samples/Resources/**
+
+# temporary artifact images
+artifacts/

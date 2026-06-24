@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/xingyue_moon_purple_soft" />
+            <corners android:radius="18dp" />
+            <stroke android:width="1dp" android:color="@color/xingyue_moon_purple" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient android:angle="0" android:endColor="#E8F2FF" android:startColor="#FCFBFF" />
+            <corners android:radius="18dp" />
+            <stroke android:width="1dp" android:color="#B9C9F5" />
+        </shape>
+    </item>
+</selector>

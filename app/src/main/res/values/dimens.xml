@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mi_page_padding">20dp</dimen>
+    <dimen name="mi_card_radius">18dp</dimen>
+    <dimen name="mi_chip_radius">18dp</dimen>
+    <dimen name="mi_button_radius">24dp</dimen>
+</resources>

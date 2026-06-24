@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profile_home_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingStart="16dp"
+        android:paddingTop="22dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的"
+                android:textColor="@color/mi_text_main"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="欢迎回到心屿"
+                android:textColor="@color/profile_caption"
+                android:textSize="13sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="176dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_profile_header_companion"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:translationZ="0dp"
+                android:padding="18dp">
+
+                <ImageView
+                    android:layout_width="156dp"
+                    android:layout_height="156dp"
+                    android:layout_gravity="end|bottom"
+                    android:alpha="0.10"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/deco_xingyue_avatar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/profile_avatar_button"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:background="@drawable/bg_profile_avatar_ring"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="@drawable/bg_profile_menu_ripple"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/profile_avatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="个人头像"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/deco_xingyue_avatar" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/profile_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="叶子"
+                                android:textColor="@color/mi_text_main"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/profile_status_chip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:layout_marginStart="8dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="@drawable/bg_profile_menu_ripple"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <!-- 48dp touch target with a compact 32dp visual capsule. -->
+                                <LinearLayout
+                                    android:id="@+id/profile_status_chip_surface"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="32dp"
+                                    android:background="@drawable/bg_status_chip"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="11dp">
+
+                                    <ImageView
+                                        android:id="@+id/profile_status_chip_icon"
+                                        android:layout_width="17dp"
+                                        android:layout_height="17dp"
+                                        android:contentDescription="@null"
+                                        android:src="@drawable/ic_status_plus" />
+
+                                    <TextView
+                                        android:id="@+id/profile_status_chip_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="5dp"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:maxWidth="68dp"
+                                        android:text="状态"
+                                        android:textColor="@color/profile_accent_deep"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/profile_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:text="今天也在心屿被温柔陪伴"
+                            android:textColor="@color/mi_text_sub"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/profile_user_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="ID：user_10001"
+                            android:textColor="@color/profile_caption"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/profile_qr_button"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_profile_round_button"
+                        android:clickable="true"
+                        android:contentDescription="打开我的二维码"
+                        android:focusable="true"
+                        android:foreground="@drawable/bg_profile_menu_ripple"
+                        android:padding="13dp"
+                        android:src="@drawable/ic_profile_qr"
+                        android:tint="@color/profile_accent_deep" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_profile_status_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="今日心屿状态"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="被温柔陪伴中"
+                        android:textColor="@color/profile_accent_deep"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="今日心情"
+                            android:textColor="@color/profile_caption"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="晴朗"
+                            android:textColor="@color/mi_text_main"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.35"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="陪伴角色"
+                            android:textColor="@color/profile_caption"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/profile_companion_role"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="星月水母"
+                            android:textColor="@color/mi_text_main"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="互动能量"
+                            android:textColor="@color/profile_caption"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="86%"
+                            android:textColor="@color/mi_text_main"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_profile_energy_track" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/ProfileGroupLabel"
+                android:text="陪伴空间" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/profile_pet_entry"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_profile_feature_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_profile_icon_companion"
+                        android:contentDescription="@null"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_profile_pet"
+                        android:tint="@color/profile_accent_deep" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="我的桌宠"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="查看当前陪伴角色"
+                        android:textColor="@color/profile_caption"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/profile_theme_entry"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_profile_feature_secondary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_profile_icon_companion"
+                        android:contentDescription="@null"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_profile_theme"
+                        android:tint="@color/profile_secondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="背景与主题"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="装点你的心屿空间"
+                        android:textColor="@color/profile_caption"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/ProfileGroupLabel"
+                android:text="个人与陪伴" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_profile_card_companion"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:translationZ="0dp"
+                android:orientation="vertical"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp">
+
+                <LinearLayout
+                    android:id="@+id/profile_edit_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_blue" android:contentDescription="@null" android:src="@drawable/ic_profile_person" android:tint="@color/xingyue_primary_blue_deep" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="个人资料" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+                <View style="@style/ProfileMenuDivider" />
+                <LinearLayout
+                    android:id="@+id/profile_status_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_purple" android:contentDescription="@null" android:src="@drawable/ic_profile_heart" android:tint="@color/xingyue_moon_purple_deep" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="我的状态" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+                <View style="@style/ProfileMenuDivider" />
+                <LinearLayout
+                    android:id="@+id/profile_qr_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_blue" android:contentDescription="@null" android:src="@drawable/ic_profile_qr" android:tint="@color/xingyue_primary_blue_deep" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="我的二维码" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+                <View style="@style/ProfileMenuDivider" />
+                <LinearLayout
+                    android:id="@+id/profile_role_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_mint" android:contentDescription="@null" android:src="@drawable/ic_profile_roles" android:tint="@color/xingyue_mint_deep" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="角色管理" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+                <View style="@style/ProfileMenuDivider" />
+                <LinearLayout
+                    android:id="@+id/profile_chat_history_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_purple" android:contentDescription="@null" android:src="@drawable/ic_profile_history" android:tint="@color/xingyue_moon_purple_deep" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="聊天记录" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/ProfileGroupLabel"
+                android:text="应用" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_profile_card_companion"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:translationZ="0dp"
+                android:orientation="vertical"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp">
+
+                <LinearLayout
+                    android:id="@+id/profile_settings_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_blue" android:contentDescription="@null" android:src="@drawable/ic_profile_settings" android:tint="@color/xingyue_text_secondary" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="设置" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+                <View style="@style/ProfileMenuDivider" />
+                <LinearLayout
+                    android:id="@+id/profile_help_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_mint" android:contentDescription="@null" android:src="@drawable/ic_profile_help" android:tint="@color/xingyue_mint_deep" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="帮助与反馈" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+                <View style="@style/ProfileMenuDivider" />
+                <LinearLayout
+                    android:id="@+id/profile_about_entry"
+                    style="@style/ProfileMenuRow">
+                    <ImageView style="@style/ProfileMenuIcon" android:background="@drawable/bg_profile_icon_pink" android:contentDescription="@null" android:src="@drawable/ic_profile_help" android:tint="@color/xingyue_mist_pink_deep" />
+                    <TextView style="@style/ProfileMenuTitle" android:text="关于心屿" />
+                    <TextView style="@style/ProfileMenuArrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

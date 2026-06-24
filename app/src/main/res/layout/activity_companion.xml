@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/companion_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:background="@color/xingyue_system_bar">
+
+    <!-- One shared bitmap sits below every main tab and embedded profile view. -->
+    <ImageView
+        android:id="@+id/global_xingyue_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_xingyue_app_clean" />
+
+    <View
+        android:id="@+id/global_xingyue_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_page_overlay"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no" />
+
+    <FrameLayout
+        android:id="@+id/main_page_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:paddingBottom="88dp">
+
+        <LinearLayout
+            android:id="@+id/section_companion_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="2dp"
+            android:weightSum="11">
+
+            <com.mindisle.app.ui.companion.Live2DContainerView
+                android:id="@+id/live2d_stage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="7"
+                android:background="@drawable/bg_live2d_stage"
+                android:clipToOutline="true"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:translationZ="0dp"
+                android:padding="0dp">
+
+                <ImageView
+                    android:id="@+id/companion_background_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="false"
+                    android:clickable="false"
+                    android:contentDescription="陪伴页面背景"
+                    android:focusable="false"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitXY" />
+
+                <View
+                    android:id="@+id/frosted_blur_overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_companion_frosted_overlay"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:importantForAccessibility="no" />
+
+                <com.mindisle.app.ui.companion.FloatingLightSpotView
+                    android:id="@+id/floating_light_spot_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:importantForAccessibility="no" />
+
+                <LinearLayout
+                    android:id="@+id/top_status_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="18dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/companion_title_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="心屿陪伴"
+                        android:textColor="@color/xingyue_text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/live2d_state_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="在线"
+                        android:textColor="@color/mi_text_sub"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/character_bubble_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginTop="64dp"
+                    android:background="@drawable/bg_character_bubble"
+                    android:maxWidth="260dp"
+                    android:text="今天想让我陪你做点什么？"
+                    android:textColor="@color/xingyue_text_primary"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <WebView
+                    android:id="@+id/live2d_web_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="18dp"
+                    android:contentDescription="Live2D 虚拟陪伴角色"
+                    android:background="@android:color/transparent"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </com.mindisle.app.ui.companion.Live2DContainerView>
+
+            <com.mindisle.app.ui.companion.CompanionChatPanel
+                android:id="@+id/companion_chat_panel"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:background="@drawable/bg_ai_chat_area"
+                android:elevation="0dp"
+                android:stateListAnimator="@null"
+                android:translationZ="0dp"
+                android:orientation="vertical"
+                android:paddingStart="14dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="12dp">
+
+                <com.mindisle.app.ui.companion.MessageList
+                    android:id="@+id/companion_message_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="4dp"
+                    android:scrollbars="none" />
+
+                <LinearLayout
+                    android:id="@+id/chat_compose_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/quick_actions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/chip_focus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_quick_chip_focus"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_focus"
+                                android:tint="@color/xingyue_primary_blue_deep" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="开始专注"
+                                android:textColor="@color/xingyue_text_primary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/chip_chat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_quick_chip_chat"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_chat"
+                                android:tint="@color/xingyue_moon_purple_deep" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="陪我聊聊"
+                                android:textColor="@color/xingyue_text_primary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/chip_reminder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_quick_chip_rest"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_reminder"
+                                android:tint="@color/xingyue_mint_deep" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="提醒休息"
+                                android:textColor="@color/xingyue_text_primary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/chip_mood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_quick_chip_mood"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_mood"
+                                android:tint="@color/xingyue_mist_pink_deep" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="心情记录"
+                                android:textColor="@color/xingyue_text_primary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/chip_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_quick_chip_soft"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginEnd="6dp"
+                                android:src="@drawable/ic_more"
+                                android:tint="@color/xingyue_primary_blue_deep" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="更多"
+                                android:textColor="@color/xingyue_text_primary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:id="@+id/chat_input_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="52dp"
+                    android:background="@drawable/bg_floating_input"
+                    android:elevation="0dp"
+                    android:stateListAnimator="@null"
+                    android:translationZ="0dp"
+                    android:orientation="vertical">
+
+                    <!-- Image preview inside the capsule (GONE when no image) -->
+                    <LinearLayout
+                        android:id="@+id/image_preview_inner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:background="@drawable/bg_floating_input">
+
+                            <ImageView
+                                android:id="@+id/preview_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:clipToOutline="true" />
+
+                            <ImageView
+                                android:id="@+id/preview_close"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="top|end"
+                                android:background="@drawable/bg_icon_circle_plus"
+                                android:padding="4dp"
+                                android:src="@drawable/ic_close"
+                                android:layout_marginTop="-3dp"
+                                android:layout_marginEnd="-3dp" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <!-- Text + buttons row -->
+                    <FrameLayout
+                        android:id="@+id/text_input_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp">
+
+                        <ImageView
+                            android:id="@+id/btn_plus"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_gravity="center_vertical|start"
+                            android:layout_marginStart="5dp"
+                            android:background="@drawable/bg_icon_circle_plus"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_plus"
+                            android:tint="@color/profile_accent_deep" />
+
+                        <EditText
+                            android:id="@+id/companion_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginEnd="48dp"
+                            android:background="@null"
+                            android:cursorVisible="true"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:hint="请输入你想说的话……"
+                            android:imeOptions="actionSend|flagNoExtractUi"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/xingyue_text_primary"
+                            android:textColorHint="@color/xingyue_text_secondary"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/btn_right_action"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/bg_icon_circle_mic"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_mic" />
+
+                        <LinearLayout
+                            android:id="@+id/voice_mode_overlay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="48dp"
+                            android:layout_marginEnd="48dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/voice_hold_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="按住说话"
+                                android:textColor="#8C93A8"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                </LinearLayout>
+            </com.mindisle.app.ui.companion.CompanionChatPanel>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/section_exchange_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:id="@+id/relax_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Keep the legacy AI update target alive without exposing chat inside Relax. -->
+            <TextView
+                android:id="@+id/exchange_latest_text"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:importantForAccessibility="no"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/section_diagnosis_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:visibility="gone">
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/view_assessment_center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/section_profile_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:visibility="gone">
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/view_profile_home" />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/view_profile_edit" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/fixed_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_bottom_nav_glass"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        android:translationZ="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:id="@+id/nav_companion_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nav_companion_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="1dp"
+                android:drawableTop="@drawable/ic_nav_home"
+                android:gravity="center"
+                android:text="陪伴"
+                android:textColor="@color/xingyue_primary_blue"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/nav_companion_dot"
+                android:layout_width="18dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_shell_nav_dot" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_diagnosis_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nav_diagnosis_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="1dp"
+                android:drawableTop="@drawable/ic_nav_practice"
+                android:gravity="center"
+                android:text="评估"
+                android:textColor="@color/mi_text_sub"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/nav_diagnosis_dot"
+                android:layout_width="18dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_shell_nav_dot"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_exchange_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nav_exchange_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="1dp"
+                android:drawableTop="@drawable/ic_nav_relax"
+                android:gravity="center"
+                android:text="放松"
+                android:textColor="@color/mi_text_sub"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/nav_exchange_dot"
+                android:layout_width="18dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_shell_nav_dot"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_profile_tab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nav_profile_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="1dp"
+                android:drawableTop="@drawable/ic_nav_profile"
+                android:gravity="center"
+                android:text="我的"
+                android:textColor="@color/mi_text_sub"
+                android:textSize="12sp" />
+
+            <View
+                android:id="@+id/nav_profile_dot"
+                android:layout_width="18dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_shell_nav_dot"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Shared shell entry: keep it outside every tab so WebView/page content cannot cover it. -->
+    <TextView
+        android:id="@+id/music_open_button"
+        android:layout_width="18dp"
+        android:layout_height="58dp"
+        android:layout_gravity="start|center_vertical"
+        android:alpha="0.72"
+        android:background="@drawable/bg_menu_handle_left"
+        android:clickable="true"
+        android:contentDescription="打开左侧音乐播放器"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="›"
+        android:textColor="@color/mi_text_sub"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/side_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/side_menu_handle"
+        android:layout_width="18dp"
+        android:layout_height="58dp"
+        android:layout_gravity="end|center_vertical"
+        android:alpha="0.72"
+        android:background="@drawable/bg_menu_handle"
+        android:gravity="center"
+        android:text="‹"
+        android:textColor="@color/mi_text_sub"
+        android:textSize="18sp" />
+
+    <com.mindisle.app.ui.companion.CompanionSideMenu
+        android:id="@+id/companion_side_menu"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@drawable/bg_side_menu"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        android:translationZ="0dp"
+        android:orientation="vertical"
+        android:paddingStart="18dp"
+        android:paddingTop="22dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="22dp"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="当前角色"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_side_section"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:src="@drawable/ic_pet_senior" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/menu_pet_name_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="心屿 · 默认形象"
+                            android:textColor="@color/mi_text_main"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Live2D 接口已预留"
+                            android:textColor="@color/mi_text_sub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/menu_switch_pet"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_tag_inactive"
+                    android:gravity="center"
+                    android:text="切换角色"
+                    android:textColor="@color/mi_text_main"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="换装"
+                    android:textColor="@color/mi_text_main" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/costume_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_quick_chip"
+                            android:gravity="center"
+                            android:text="默认"
+                            android:textColor="@color/mi_text_main" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_quick_chip"
+                            android:gravity="center"
+                            android:text="校园"
+                            android:textColor="@color/mi_text_main" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_quick_chip"
+                            android:gravity="center"
+                            android:text="睡衣"
+                            android:textColor="@color/mi_text_main" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_quick_chip"
+                            android:gravity="center"
+                            android:text="学习装"
+                            android:textColor="@color/mi_text_main" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="动作"
+                    android:textColor="@color/mi_text_main" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/action_hello"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="打招呼"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/action_happy"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="开心"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/action_rest"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="休息"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/action_default"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="默认"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/action_talking"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="说话"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="背景"
+                    android:textColor="@color/mi_text_main" />
+
+                <TextView
+                    android:id="@+id/menu_change_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_tag_inactive"
+                    android:gravity="center"
+                    android:text="更换背景"
+                    android:textColor="@color/mi_text_main"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Live2D 设置"
+                    android:textColor="@color/mi_text_main" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/touch_feedback_switch"
+                    app:thumbTint="@color/companion_switch_thumb"
+                    app:trackTint="@color/companion_switch_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:checked="true"
+                    android:text="触摸反馈"
+                    android:textColor="@color/mi_text_main" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/talking_animation_switch"
+                    app:thumbTint="@color/companion_switch_thumb"
+                    app:trackTint="@color/companion_switch_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:checked="true"
+                    android:text="说话动画"
+                    android:textColor="@color/mi_text_main" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/blink_switch"
+                    app:thumbTint="@color/companion_switch_thumb"
+                    app:trackTint="@color/companion_switch_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:checked="true"
+                    android:text="自动眨眼"
+                    android:textColor="@color/mi_text_main" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="角色大小"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="13sp" />
+
+                <SeekBar
+                    android:id="@+id/character_size_seekbar"
+                    android:progressTint="@color/profile_accent"
+                    android:progressBackgroundTint="@color/profile_divider"
+                    android:thumbTint="@color/profile_secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:max="100"
+                    android:progress="78" />
+
+                <TextView
+                    android:id="@+id/xingyue_display_mode_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="显示模式"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:id="@+id/xingyue_display_mode_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/display_mode_full_body"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="全身"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/display_mode_half_body"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginHorizontal="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="半身"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/display_mode_chibi"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="缩小"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/xingyue_expression_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="表情测试"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="13sp" />
+
+                <HorizontalScrollView
+                    android:id="@+id/xingyue_expression_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/xingyue_expression_chip_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/xingyue_motion_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="动作测试"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="13sp" />
+
+                <HorizontalScrollView
+                    android:id="@+id/xingyue_motion_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/xingyue_motion_chip_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="拖拽预设调试"
+                    android:textColor="@color/mi_text_main" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/xingyue_look_preset_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/voice_switch"
+                    app:thumbTint="@color/companion_switch_thumb"
+                    app:trackTint="@color/companion_switch_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:checked="true"
+                    android:text="语音开关"
+                    android:textColor="@color/mi_text_main" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/floating_pet_switch"
+                    app:thumbTint="@color/companion_switch_thumb"
+                    app:trackTint="@color/companion_switch_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="悬浮桌宠"
+                    android:textColor="@color/mi_text_main" />
+
+                <TextView
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="桌面悬浮"
+                    android:textColor="@color/mi_text_main" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/floating_open_button"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_active"
+                        android:gravity="center"
+                        android:text="开启桌面悬浮"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/floating_close_button"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="关闭悬浮"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="模型本体大小"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="13sp" />
+
+                <SeekBar
+                    android:id="@+id/floating_model_scale_seekbar"
+                    android:progressTint="@color/profile_accent"
+                    android:progressBackgroundTint="@color/profile_divider"
+                    android:thumbTint="@color/profile_secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:max="120" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="悬浮窗区域大小"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="13sp" />
+
+                <SeekBar
+                    android:id="@+id/floating_window_size_seekbar"
+                    android:progressTint="@color/profile_accent"
+                    android:progressBackgroundTint="@color/profile_divider"
+                    android:thumbTint="@color/profile_secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:max="100"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/floating_transparent_switch"
+                    app:thumbTint="@color/companion_switch_thumb"
+                    app:trackTint="@color/companion_switch_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:checked="true"
+                    android:text="透明背景"
+                    android:textColor="@color/mi_text_main" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/floating_switch_model"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="切换悬浮模型"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/floating_reset_position"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="重置位置"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="增强互动模式"
+                    android:textColor="@color/mi_text_main"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="开启后，小屿可以根据你在桌面和其他 App 中的点击行为做出陪伴反应。该功能需要系统辅助功能权限，只用于本地动画反馈，不记录、不上传任何内容。"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="12sp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/enhanced_interaction_switch"
+                    app:thumbTint="@color/companion_switch_thumb"
+                    app:trackTint="@color/companion_switch_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="8dp"
+                    android:text="增强互动模式"
+                    android:textColor="@color/mi_text_main" />
+
+                <TextView
+                    android:id="@+id/floating_accessibility_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_tag_inactive"
+                    android:gravity="center"
+                    android:text="去开启辅助功能权限"
+                    android:textColor="@color/mi_text_main"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/enhanced_interaction_close"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_inactive"
+                        android:gravity="center"
+                        android:text="关闭增强互动"
+                        android:textColor="@color/mi_text_main"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/enhanced_interaction_test"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag_active"
+                        android:gravity="center"
+                        android:text="测试反应"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/floating_interaction_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="最近一次外部事件：未收到\n最近一次坐标：无效\n最近一次反应：暂无"
+                    android:textColor="@color/mi_text_sub"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/menu_pomodoro"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_tag_active"
+                    android:gravity="center"
+                    android:text="番茄钟入口"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/menu_more_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_tag_inactive"
+                    android:gravity="center"
+                    android:text="更多设置"
+                    android:textColor="@color/mi_text_main"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
+    </com.mindisle.app.ui.companion.CompanionSideMenu>
+
+    <View
+        android:id="@+id/music_drawer_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#520F2238"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone" />
+
+    <include layout="@layout/view_music_drawer" />
+</FrameLayout>

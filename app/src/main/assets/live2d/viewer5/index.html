@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MindIsle Live2D Viewer 5</title>
+    <!-- Earliest no-op stubs — safe to call before any scripts load -->
+    <script>
+        const mindIsleViewerParams = new URLSearchParams(window.location.search);
+        const mindIsleViewerMode = mindIsleViewerParams.get("mode") || "normal";
+        const mindIsleViewerVariant = mindIsleViewerParams.get("variant") || "";
+        if (mindIsleViewerMode === "float" || mindIsleViewerParams.get("floating") === "1") {
+            document.documentElement.classList.add("float-mode");
+        }
+        console.log("[Live2DViewer] mode=" + mindIsleViewerMode);
+        console.log("[Live2DViewer] modelId=" + (mindIsleViewerParams.get("modelId") || ""));
+        console.log("[Live2DViewer] variant=" + mindIsleViewerVariant);
+        console.log("[Live2DViewer] resolved model3=" + (mindIsleViewerParams.get("model") || ""));
+        window.setEmotionState = window.setEmotionState || function(s) { console.log("[Live2DViewer5] setEmotionState called (early)", s); };
+        window.playMotion = window.playMotion || function(m) { console.log("[Live2DViewer5] playMotion called (early)", m); };
+        window.playIdleAction = window.playIdleAction || function(a) { console.log("[Live2DViewer5] playIdleAction called (early)", a); };
+    </script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        body::before {
+            display: none;
+        }
+
+        html.float-mode,
+        html.float-mode body {
+            background: transparent !important;
+        }
+
+        html.float-mode body::before {
+            display: none;
+        }
+
+        canvas {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: transparent;
+        }
+    </style>
+    <script src="Core/live2dcubismcore.js"></script>
+    <script>
+        window.resizeCanvas = function(width, height) {
+            console.log("[Live2DViewer5] resizeCanvas noop", width, height);
+        };
+        window.fitModelToCanvas = function() {
+            console.log("[Live2DViewer5] fitModelToCanvas handled by official sample");
+        };
+        window.resetModelTransform = function() {
+            console.log("[Live2DViewer5] resetModelTransform noop");
+        };
+        window.setUserScaleMultiplier = function(multiplier) {
+            console.log("[Live2DViewer5] setUserScaleMultiplier noop", multiplier);
+        };
+        window.setModelScale = window.setUserScaleMultiplier;
+        window.setModelPosition = function(x, y) {
+            console.log("[Live2DViewer5] setModelPosition noop", x, y);
+        };
+        window.setDisplayPreset = function(preset) {
+            console.log("[Live2DViewer5] setDisplayPreset called", preset);
+            if (window.MindIsleViewer5 && window.MindIsleViewer5.setDisplayPreset) {
+                return window.MindIsleViewer5.setDisplayPreset(preset);
+            }
+            console.error("[Live2DViewer5] MindIsleViewer5.setDisplayPreset not ready");
+        };
+        window.applyExpressionByFile = function(expressionFile) {
+            console.log("[Live2DViewer5] applyExpressionByFile called", expressionFile);
+            if (window.MindIsleViewer5 && window.MindIsleViewer5.applyExpressionByFile) {
+                return window.MindIsleViewer5.applyExpressionByFile(expressionFile);
+            }
+            console.error("[Live2DViewer5] MindIsleViewer5.applyExpressionByFile not ready");
+        };
+        window.playMotionByFile = function(motionFile) {
+            console.log("[Live2DViewer5] playMotionByFile called", motionFile);
+            if (window.MindIsleViewer5 && window.MindIsleViewer5.playMotionByFile) {
+                return window.MindIsleViewer5.playMotionByFile(motionFile);
+            }
+            console.error("[Live2DViewer5] MindIsleViewer5.playMotionByFile not ready");
+        };
+        window.lookAtSmooth = function(x, y, source) {
+            console.log("[Live2DViewer5] look target", x, y, source || "direct");
+            if (window.MindIsleViewer5 && window.MindIsleViewer5.lookAtSmooth) {
+                return window.MindIsleViewer5.lookAtSmooth(x, y);
+            }
+            console.error("[Live2DViewer5] MindIsleViewer5.lookAtSmooth not ready");
+        };
+        window.playTapReactionSmooth = function(x, y, source) {
+            console.log("[Live2DViewer5] tap reaction", x, y, source || "direct");
+            if (window.MindIsleViewer5 && window.MindIsleViewer5.playTapReactionSmooth) {
+                return window.MindIsleViewer5.playTapReactionSmooth(x, y);
+            }
+            console.error("[Live2DViewer5] MindIsleViewer5.playTapReactionSmooth not ready");
+        };
+        window.resetLookAtSmooth = function() {
+            if (window.MindIsleViewer5 && window.MindIsleViewer5.resetLookAtSmooth) {
+                return window.MindIsleViewer5.resetLookAtSmooth();
+            }
+            console.error("[Live2DViewer5] MindIsleViewer5.resetLookAtSmooth not ready");
+        };
+        window.setTalkState = function(talking) {
+            console.log("[Live2DViewer5] talk state", talking);
+            if (window.MindIsleViewer5 && window.MindIsleViewer5.setTalkState) {
+                return window.MindIsleViewer5.setTalkState(Boolean(talking));
+            }
+            console.error("[Live2DViewer5] MindIsleViewer5.setTalkState not ready");
+        };
+    </script>
+</head>
+<body>
+<script type="module" src="assets/mindisle-viewer5.js"></script>
+<script src="assets/look-inertia.js"></script>
+</body>
+</html>

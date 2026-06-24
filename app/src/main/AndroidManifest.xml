@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@drawable/ic_launcher_foreground"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MindIsle"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activity.DiagnosisActivity"
+            android:exported="false" />
+        <service
+            android:name=".floating.Live2DFloatingService"
+            android:exported="false" />
+        <service
+            android:name=".floating.FloatingInteractionAccessibilityService"
+            android:enabled="false"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/floating_interaction_accessibility_service" />
+        </service>
+        <activity
+            android:name=".activity.CompanionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing|stateHidden" />
+        <activity
+            android:name=".activity.CrisisHelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PetCustomizeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MoodDiaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MindIsle.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

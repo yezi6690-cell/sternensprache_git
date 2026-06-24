@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/music_drawer_panel"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@drawable/bg_music_drawer"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:elevation="0dp"
+    android:stateListAnimator="@null"
+    android:translationZ="0dp"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:id="@+id/music_drawer_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingStart="12dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp">
+
+    <!-- Drawer header stays outside the playback card to keep hierarchy clear. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="心屿音乐"
+                android:textColor="@color/xingyue_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="给此刻一点温柔旋律"
+                android:textColor="@color/xingyue_text_secondary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/music_drawer_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_music_control_button"
+            android:contentDescription="关闭音乐侧栏"
+            android:padding="12dp"
+            android:src="@drawable/ic_close"
+            android:tint="@color/xingyue_text_primary" />
+    </LinearLayout>
+
+    <!-- Compact horizontal record information and seek progress. -->
+    <LinearLayout
+        android:id="@+id/music_now_playing_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_music_surface_glass"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="84dp">
+
+                <com.mindisle.app.music.VinylRecordView
+                    android:id="@+id/music_vinyl"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:layout_gravity="start|center_vertical"
+                    android:contentDescription="当前音乐封面唱片" />
+
+                <com.mindisle.app.music.TonearmView
+                    android:id="@+id/music_tonearm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:clickable="false"
+                    android:focusable="false" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/music_current_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="还没有添加音乐"
+                    android:textColor="@color/xingyue_text_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/music_current_artist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="把喜欢的旋律放进心屿"
+                    android:textColor="@color/xingyue_text_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/music_progress"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:minHeight="5dp"
+            android:maxHeight="5dp"
+            android:max="1000"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:progressDrawable="@drawable/bg_music_progress"
+            android:splitTrack="false"
+            android:thumb="@drawable/bg_music_progress_thumb" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/music_current_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="00:00"
+                android:textColor="@color/xingyue_text_secondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/music_total_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="00:00"
+                android:textColor="@color/xingyue_text_secondary"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Compact icon-only playback controls. -->
+    <LinearLayout
+        android:id="@+id/music_control_section"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_music_controls_glass"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/music_previous"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_music_control_button"
+            android:contentDescription="上一曲"
+            android:padding="14dp"
+            android:src="@drawable/ic_music_prev" />
+
+        <ImageView
+            android:id="@+id/music_play_pause"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_music_play_button"
+            android:contentDescription="播放"
+            android:padding="14dp"
+            android:src="@drawable/ic_music_play" />
+
+        <ImageView
+            android:id="@+id/music_next"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_music_control_button"
+            android:contentDescription="下一曲"
+            android:padding="14dp"
+            android:src="@drawable/ic_music_next" />
+
+        <ImageView
+            android:id="@+id/music_mode_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/bg_music_control_button"
+            android:contentDescription="切换播放模式"
+            android:padding="14dp"
+            android:src="@drawable/ic_music_order" />
+    </LinearLayout>
+
+    <!-- Remaining space: local file actions and the independently scrolling track list. -->
+    <LinearLayout
+        android:id="@+id/music_library_section"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_music_library_glass"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="音乐列表"
+                android:textColor="@color/xingyue_text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/music_add_button"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_music_action_button"
+                android:contentDescription="添加本地音乐"
+                android:padding="12dp"
+                android:src="@drawable/ic_music_add" />
+
+            <ImageView
+                android:id="@+id/music_delete_current_button"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="8dp"
+                android:alpha="0.42"
+                android:background="@drawable/bg_music_action_button"
+                android:contentDescription="删除当前音乐"
+                android:enabled="false"
+                android:padding="12dp"
+                android:src="@drawable/ic_music_delete" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/music_track_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/music_track_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="8dp"
+                android:scrollbars="vertical" />
+
+            <LinearLayout
+                android:id="@+id/music_empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_music_cover"
+                    android:contentDescription="@null"
+                    android:padding="13dp"
+                    android:src="@drawable/ic_music_note" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="还没有音乐"
+                    android:textColor="@color/xingyue_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:text="添加一首喜欢的旋律吧"
+                    android:textColor="@color/xingyue_text_secondary"
+                    android:textSize="11sp" />
+
+                <ImageView
+                    android:id="@+id/music_empty_add_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_music_play_button"
+                    android:contentDescription="添加本地音乐"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_music_add" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="音乐和文件权限仅保存在本地设备"
+            android:textColor="@color/xingyue_text_hint"
+            android:textSize="9sp" />
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Root-level debug overlay. It is last so particles always draw above every card. -->
+    <com.mindisle.app.music.DeleteParticleView
+        android:id="@+id/music_delete_particle_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
+</FrameLayout>

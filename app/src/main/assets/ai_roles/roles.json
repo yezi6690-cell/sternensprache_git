@@ -1,0 +1,184 @@
+{
+  "roles": [
+    {
+      "roleId": "baimao",
+      "modelId": "baimao",
+      "displayName": "白猫",
+      "personaFileName": "baimao.txt",
+      "live2dModelPath": "../models/whitecat/sdwhite cat free.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "../models/whitecat/sdwhite cat free.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "xiaoyu",
+      "modelId": "xiaoyu",
+      "displayName": "小屿",
+      "personaFileName": "xiaoyu.txt",
+      "live2dModelPath": "../models/qq/1-qq.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "../models/qq/1-qq.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "xingyue_shuimu",
+      "modelId": "xingyue_shuimu",
+      "displayName": "星月水母",
+      "personaFileName": "xingyue_shuimu.txt",
+      "live2dModelPath": "live2d/xingyue_shuimu_safe/xingyue_shuimu_safe.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "live2d/xingyue_shuimu_safe/xingyue_shuimu_safe.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "xiaotuji",
+      "modelId": "xiaotuji",
+      "displayName": "小兔姬",
+      "personaFileName": "xiaotuji.txt",
+      "live2dModelPath": "../xiaotuji/小兔叽 (1).model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "../xiaotuji/小兔叽 (1).model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "hehua_xiaojiangshi",
+      "modelId": "hehua_xiaojiangshi",
+      "displayName": "荷花小僵尸",
+      "personaFileName": "hehua_xiaojiangshi.txt",
+      "live2dModelPath": "../hehua_xiaojiangshi/荷花小僵尸.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "../hehua_xiaojiangshi/荷花小僵尸.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "tianshi_xiaoxiaoyang",
+      "modelId": "tianshi_xiaoxiaoyang",
+      "displayName": "天使小小羊",
+      "personaFileName": "tianshi_xiaoxiaoyang.txt",
+      "live2dModelPath": "../tianshi_xiaoxiaoyang/天使小小羊.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "../tianshi_xiaoxiaoyang/天使小小羊.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "xiaoxiong",
+      "modelId": "xiaoxiong",
+      "displayName": "小熊",
+      "personaFileName": "xiaoxiong.txt",
+      "live2dModelPath": "../xiaoxiong/女仆小熊.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "../xiaoxiong/女仆小熊.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "yumi",
+      "modelId": "yumi",
+      "displayName": "Yumi",
+      "personaFileName": "yumi.txt",
+      "live2dModelPath": "../yumi/yumi.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "../yumi/yumi.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    },
+    {
+      "roleId": "xiaohushi",
+      "modelId": "xiaohushi",
+      "displayName": "小护士",
+      "personaFileName": "xiaohushi.txt",
+      "live2dModelPath": "live2d/cubism5_models/xiaohushi/model.model3.json",
+      "enabled": true,
+      "description": "",
+      "personalityPrompt": "",
+      "speakingStyle": "",
+      "relationshipWithUser": "",
+      "welcomeMessage": "",
+      "live2d": {
+        "modelPath": "live2d/cubism5_models/xiaohushi/model.model3.json",
+        "defaultExpression": "",
+        "defaultMotion": "",
+        "expressions": [],
+        "motions": []
+      }
+    }
+  ]
+}

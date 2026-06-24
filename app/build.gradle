@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+}
+
+import java.util.Properties
+
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+
+def xfyunAppId = localProps.getProperty('XFYUN_APP_ID', '')
+def xfyunApiKey = localProps.getProperty('XFYUN_API_KEY', '')
+def xfyunApiSecret = localProps.getProperty('XFYUN_API_SECRET', '')
+def xfyunAsrUrl = localProps.getProperty('XFYUN_ASR_URL', 'wss://iat.xf-yun.com/v1')
+def aiBackendBaseUrl = localProps.getProperty('AI_BACKEND_BASE_URL', 'http://10.0.2.2:3000/').trim()
+if (!aiBackendBaseUrl.endsWith('/')) {
+    aiBackendBaseUrl += '/'
+}
+
+android {
+    namespace 'com.mindisle.app'
+    compileSdk = 36
+    compileSdkMinor = 1
+
+    defaultConfig {
+        applicationId 'com.mindisle.app'
+        minSdk = 26
+        targetSdk = 36
+        versionCode = 1
+        versionName = '0.1'
+
+        buildConfigField 'String', 'XFYUN_APP_ID', "\"${xfyunAppId}\""
+        buildConfigField 'String', 'XFYUN_API_KEY', "\"${xfyunApiKey}\""
+        buildConfigField 'String', 'XFYUN_API_SECRET', "\"${xfyunApiSecret}\""
+        buildConfigField 'String', 'XFYUN_ASR_URL', "\"${xfyunAsrUrl}\""
+        buildConfigField 'String', 'AI_BACKEND_BASE_URL', "\"${aiBackendBaseUrl}\""
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    androidResources {
+        noCompress += ['mp3']
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.webkit:webkit:1.8.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+}
